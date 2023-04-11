@@ -10,4 +10,8 @@ import { IonicModule } from '@ionic/angular';
 })
 export class AppComponent {
   constructor() {}
+
+  func1(){
+    console.log("Função 1");
+  }
 }

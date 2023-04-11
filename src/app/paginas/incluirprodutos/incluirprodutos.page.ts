@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵpureFunction1 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { ProdutosService } from 'src/app/servicos/produtos.service';
-
+import { AppComponent } from 'src/app/app.component';
+ 
 @Component({
   selector: 'app-incluirprodutos',
   templateUrl: './incluirprodutos.page.html',
@@ -15,7 +16,7 @@ export class IncluirprodutosPage implements OnInit {
 
   produto: any;
 
-  constructor(private service: ProdutosService) {
+  constructor(private service: ProdutosService, private nav: NavController) {
     this.produto={'prato':'',
       'bebida':'',
       'nome':'',
@@ -30,4 +31,8 @@ export class IncluirprodutosPage implements OnInit {
     this.service.cadastrar(this.produto);
   }
 
+  voltarParaHome(){
+    this.nav.navigateForward("home");
+    
+  }
 }

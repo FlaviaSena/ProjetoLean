@@ -13,6 +13,10 @@ export const routes: Routes = [
     path: 'incluirprodutos',
     loadComponent: () => import('./paginas/incluirprodutos/incluirprodutos.page').then( m => m.IncluirprodutosPage)
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./paginas/login/login.page').then( m => m.LoginPage)
+  },
 
   
   

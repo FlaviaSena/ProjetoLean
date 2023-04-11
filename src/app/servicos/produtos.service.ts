@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, Firestore } from '@angular/fire/firestore';
-import { addDoc } from 'firebase/firestore';
+import { collection, Firestore, addDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
