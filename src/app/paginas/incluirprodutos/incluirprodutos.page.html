@@ -1,0 +1,17 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Fazer seu Pedido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-input [(ngModel)]="produto.prato" placeholder="Prato"></ion-input>
+  <ion-input [(ngModel)]="produto.bebida" placeholder="Bebida"></ion-input>
+  <ion-input [(ngModel)]="produto.nome" placeholder="Nome"></ion-input>
+  <ion-input [(ngModel)]="produto.telefone" placeholder="Telefone"></ion-input>
+  <ion-input [(ngModel)]="produto.endereco" placeholder="Endereço"></ion-input>
+  
+  <ion-button (click)="incluir()">Finalizar Pedido</ion-button>
+  
+</ion-content>

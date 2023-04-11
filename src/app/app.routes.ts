@@ -9,11 +9,12 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
+  },  {
+    path: 'incluirprodutos',
+    loadComponent: () => import('./paginas/incluirprodutos/incluirprodutos.page').then( m => m.IncluirprodutosPage)
   },
-  {
-    path: 'produtos',
-    loadComponent: () => import('./produtos/produtos.page').then( m => m.ProdutosPage)
-  },
+
+  
   
  
 
