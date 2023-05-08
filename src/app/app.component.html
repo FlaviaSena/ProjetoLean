@@ -4,11 +4,13 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false" >
-            <ion-item>
-              <ion-label (click)="func1()">Funcionalidade 1</ion-label>
+            <ion-item (click)="cadastro()">
+              <ion-label>Cadastrar-se</ion-label>
             </ion-item>
 
-            <ion-item><ion-label>Funcionalidade 1</ion-label></ion-item>
+            <ion-item (click)="login()">
+              <ion-label>Login</ion-label>
+            </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>  

@@ -10,6 +10,7 @@ import { environment } from './environments/environment';
 //Apos fazer a coleção no firebase importar estes
 import { provideFirebaseApp, initializeApp} from '@angular/fire/app';
 import { getFirestore, provideFirestore} from '@angular/fire/firestore';
+import {provideAuth, getAuth} from '@angular/fire/auth';
 
 
 if (environment.production) {
@@ -22,7 +23,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(IonicModule.forRoot({}),
     //Adicionar as classes e funções
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()) 
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth())
     
     ),
     provideRouter(routes),
