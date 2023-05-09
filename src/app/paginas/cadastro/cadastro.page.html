@@ -21,6 +21,46 @@
   <form (ngSubmit)="cadastro()" [formGroup] ="credencial">
 
     <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="nome" placeholder="Nome Completo"
+        formControlName="nome"></ion-input>
+    </ion-item>
+
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="telefone" placeholder="Telefone "
+        formControlName="telefone"></ion-input>
+    </ion-item>
+
+<ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="cpf" placeholder="CPF"
+        formControlName="bairro"></ion-input>
+    </ion-item>
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="cep" placeholder="Cep"
+        formControlName="cep"></ion-input>
+    </ion-item>
+
+<ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="bairro" placeholder="Bairro"
+        formControlName="bairro"></ion-input>
+    </ion-item>
+
+<ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="rua" placeholder="Rua"
+        formControlName="rua"></ion-input>
+    </ion-item>
+
+
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="numero" placeholder="Número"
+        formControlName="numero"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input type="email" placeholder="E-mail"
         formControlName="email"></ion-input>
     </ion-item>
