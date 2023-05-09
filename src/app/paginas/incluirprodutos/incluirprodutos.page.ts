@@ -31,7 +31,7 @@ export class IncluirprodutosPage implements OnInit {
     this.service.cadastrar(this.produto);
   }
 
-  voltarParaHome(){
+  voltar(){
     this.nav.navigateForward("home");
     
   }

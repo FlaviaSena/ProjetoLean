@@ -28,10 +28,15 @@ export class CadastroPage implements OnInit {
     console.log(this.credencial.get('senha')?.value);
     const user = await this.service.cadastro(this.credencial.get('email')?.value, this.credencial.get('senha')?.value);
     if(user){
-      this.nav.navigateForward("interno");
+      this.service.armazenarUsuario(this.credencial.get('email')?.value);
+      this.nav.navigateForward("login");
     } else{
       console.log("Erro");
     }
+  }
+
+  voltar(){
+    this.nav.navigateForward('home');
   }
 
 }

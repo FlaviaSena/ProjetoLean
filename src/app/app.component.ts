@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { AlertController, IonicModule, NavController } from '@ionic/angular';
 import { signOut, Auth } from 'firebase/auth';
 import { AutenticacaoService } from './servicos/autenticacao.service';
@@ -12,7 +13,7 @@ import { AutenticacaoService } from './servicos/autenticacao.service';
   imports: [IonicModule],
 })
 export class AppComponent {
-  constructor(private nav: NavController, private service: AutenticacaoService, private alerta: AlertController) {}
+  constructor(private nav: NavController, private service: AutenticacaoService, private alerta: AlertController, private auth:AutenticacaoService ) {}
 
   func1(){
     console.log("Função 1");
@@ -27,12 +28,14 @@ export class AppComponent {
   }
 
   sair(){
-    this.service.sair();
+    console.log(this.auth.retornarUsuarioLogado());
+    if (this.auth.retornarUsuarioLogado() !== undefined){
+      this.service.sair();
+      this.service.armazenarUsuario(undefined);  
+      this.nav.navigateForward("login");
 
-    this.nav.navigateForward("login");
-
-    this.logout();
-
+      this.logout();
+    }
   }
 async logout(){
   console.log("LOGOUT");

@@ -1,28 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Cadastro de novos usuários</ion-title>
+    <ion-button slot="end" (click)="voltar()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<!--  
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Cadastro de novos usuários</ion-title>
+      <ion-button slot="end" (click)="voltar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
     </ion-toolbar>
   </ion-header>
-
+-->
   <form (ngSubmit)="cadastro()" [formGroup] ="credencial">
 
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input type="email" placeholder="E-mail"
         formControlName="email"></ion-input>
     </ion-item>
-
+<!--
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input type="nome" placeholder="Nome"
         formControlName="nome"></ion-input>
     </ion-item>
-    
+-->    
     <ion-item fill="solid" class="ion-margin-bottom">
       <ion-input type="password" placeholder="Senha"
         formControlName="senha"></ion-input>

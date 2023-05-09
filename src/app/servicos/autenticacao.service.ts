@@ -7,6 +7,7 @@ import{Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut
 })
 export class AutenticacaoService {
 
+  usrLogado?: any;
   constructor(private auth: Auth) { }
 
   cadastro(email:any, senha:any){
@@ -26,4 +27,14 @@ export class AutenticacaoService {
   sair(){
     return signOut(this.auth);
   }
+
+  armazenarUsuario(email: any){
+    this.usrLogado = email;
+
+  }
+
+  retornarUsuarioLogado(){
+    return this.usrLogado;
+  }
+
 }

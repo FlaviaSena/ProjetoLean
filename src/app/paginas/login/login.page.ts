@@ -33,6 +33,7 @@ export class LoginPage implements OnInit {
       const user = await this.service.logar(this.credencial.get('email')?.value, this.credencial.get('senha')?.value);
       console.log("Usuario: " + user);
       if(user){
+        this.service.armazenarUsuario(this.credencial.get('email')?.value);
         this.nav.navigateForward("home");
       }
     } catch(e){
@@ -56,6 +57,9 @@ export class LoginPage implements OnInit {
     console.log("Erro");
     await mensagem.present();
     console.log("Erro");
+  }
+  voltar(){
+    this.nav.navigateForward("home");
   }
 }
 
