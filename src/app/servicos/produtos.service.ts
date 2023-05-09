@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
 export interface Produto {
   id?:string;
   bebida: string;
-  endereco: string;
   nome:string;
   prato: string;
-  telefone: string;
+  valor: string;
 
 }
 @Injectable({

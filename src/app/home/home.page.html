@@ -4,41 +4,33 @@
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>    
     <ion-title>Home</ion-title>
+
+    <ion-buttons slot = "end">
+      <ion-button (click)="carrinho()">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
+
+<!-- 'prato':'',
+      'bebida':'',
+      'nome':'',
+      'valor':''-->
 <ion-content>
   
-  <ion-card color="light">
+  <ion-card color="light" *ngFor=" let p of produtos">
     <img  src="../../assets/imghome.jpg" />
-    <ion-card-header>
-      <ion-card-title>Tudo Natural </ion-card-title>
+    <ion-card-header >
+      <ion-card-title>{{p.prato}} </ion-card-title>
+      <ion-card-title>{{p.bebida}} </ion-card-title>
+      <ion-card-title>{{p.valor}} </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
       Aqui sua experiência é elevada as alturas no assunto se alimentar bem .
-    </ion-card-content>
-  </ion-card>
-  
-  <ion-card color="light">
-    <img  src="../../assets/salmao.webp" />
-    <ion-card-header>
-      <ion-card-title>Salmão Grelhado com Salada </ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Qualidade de vida na sua alimentação é o que mais importa pra nós.
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card color="light">
-    <img  src="../../assets/frangoSalada.webp" />
-    <ion-card-header>
-      <ion-card-title>Frango Grelhado com Salada </ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Qualidade de vida na sua alimentação é o que mais importa pra nós.
     </ion-card-content>
   </ion-card>
   
