@@ -1,42 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
-import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
+import { Cadastrocliente, CadastroclienteService } from 'src/app/servicos/cadastrocliente.service';
+
+
 
 @Component({
-  selector: 'app-cadastro',
+  selector: 'app-cadastrocliente',
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule]
 })
-export class CadastroPage implements OnInit {
-  credencial!:FormGroup;
+export class CadastroclientePage implements OnInit {
+  cadastrocliente: Cadastrocliente[] = [];
 
-  constructor(private service: AutenticacaoService, private fb: FormBuilder,private nav: NavController) { }
+  constructor( private service: CadastroclienteService, private nav: NavController) { }
 
   ngOnInit() {
-    this.credencial = this.fb.group({
-      email: ['', [Validators.required,Validators.email]],
-      senha:['',[Validators.required, Validators.minLength]]
-    })
+    this.service.listar().subscribe(res => {
+      this.cadastrocliente = res;
+      console.log(this.cadastrocliente);
+    });
+    
   }
-
-  async cadastro(){
-    console.log(this.credencial.get('email')?.value);
-    console.log(this.credencial.get('senha')?.value);
-    const user = await this.service.cadastro(this.credencial.get('email')?.value, this.credencial.get('senha')?.value);
-    if(user){
-      this.service.armazenarUsuario(this.credencial.get('email')?.value);
-      this.nav.navigateForward("login");
-    } else{
-      console.log("Erro");
-    }
+  novo(){
+this.nav.navigateForward("cadastrarcliente");
   }
-
-  voltar(){
-    this.nav.navigateForward('home');
+  iniciarEdicao(id:any){
+this.nav.navigateForward(["cadastrocliente",{idcadastrocliente:id}]);
   }
 
 }
