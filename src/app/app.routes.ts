@@ -19,10 +19,6 @@ export const routes: Routes = [
     loadComponent: () => import('./paginas/login/login.page').then( m => m.LoginPage)
   },
   {
-    path: 'produtos',
-    loadComponent: () => import('./paginas/produtos/produtos.page').then( m => m.ProdutosPage)
-  },
-  {
     path: 'cadastro',
     loadComponent: () => import('./paginas/cadastro/cadastro.page').then( m => m.CadastroclientePage)
   },
@@ -33,6 +29,10 @@ export const routes: Routes = [
   {
     path: 'incluircadastro',
     loadComponent: () => import('./paginas/incluircadastro/incluircadastro.page').then( m => m.IncluirCadastroclientPage)
+  },
+  {    
+    path: 'carrinho',
+    loadComponent: () => import('./paginas/carrinho/carrinho.page').then( m => m.CarrinhoPage)
   },
 
   
