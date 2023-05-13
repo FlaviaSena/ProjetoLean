@@ -19,8 +19,8 @@ export class AppComponent {
     console.log("Função 1");
   }
 
-  cadastro(){
-    this.nav.navigateForward("cadastro");
+  cadastrar(){
+    this.nav.navigateForward("incluircadastro");
   }
 
   login(){

@@ -28,6 +28,10 @@ export class AutenticacaoService {
     return signOut(this.auth);
   }
 
+  compra(){
+    return (this.auth);
+  }
+
   armazenarUsuario(email: any){
     this.usrLogado = email;
 
