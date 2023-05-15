@@ -10,4 +10,30 @@
       <ion-title size="large">Carrinho</ion-title>
     </ion-toolbar>
   </ion-header>
+
+
+  <!--
+     ids?:string;
+  bebida: string;
+  nome:string;
+  prato: string;
+  valor: string;
+  -->
+
+  <ion-card *ngFor= "let c of produtos">
+    <ion-card-subtitle>{{c.nome}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.bebida}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.prato}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>
+    
+   
+    
+  <ion-card-content>
+    <ion-button>Finalizar Compra</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
 </ion-content>

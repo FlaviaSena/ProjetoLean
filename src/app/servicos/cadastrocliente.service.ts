@@ -13,6 +13,7 @@ export interface Cadastrocliente {
   rua: string;
   numero: string;
   bairro: string;
+  email: string;
 
 }
 @Injectable({
