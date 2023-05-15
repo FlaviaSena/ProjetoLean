@@ -20,15 +20,17 @@
   valor: string;
   -->
 
-  <ion-card *ngFor= "let c of produtos">
+  <ion-card *ngFor= "let c of listacompras">
     <ion-card-subtitle>{{c.nome}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.bebida}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.prato}}</ion-card-subtitle>
-    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>
-    
+    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>  
+   
    
     
   <ion-card-content>
+    <ion-input type="number" [(ngModel)]="c.quantidade"></ion-input>
+
     <ion-button>Finalizar Compra</ion-button>
     </ion-card-content>
   </ion-card>

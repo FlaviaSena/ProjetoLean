@@ -36,8 +36,5 @@ export const routes: Routes = [
   },
 
   
-  
- 
-
 
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { CompilerFactory, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
@@ -18,7 +18,7 @@ export class CarrinhoPage implements OnInit {
   listacompras: Compras[] = [];
   produtos: Produto[] = [];
 
-  
+  item = {} as Compras;
   ids: any;
   constructor(private Pservice: ProdutosService ,private service:CarrinhoService, private nav: NavController,  private rota: ActivatedRoute) { }
 
@@ -34,6 +34,13 @@ export class CarrinhoPage implements OnInit {
       if (vetor[i] != ""){
         this.Pservice.buscar(vetor[i]).subscribe(res => {
           this.produtos.push(res);
+
+          this.item.nome = res.nome;
+          this.item.prato = res.prato;
+          this.item.bebida = res.bebida;
+          this.item.valor = res.valor;
+          this.item.quantidade = '1'
+          this.listacompras.push(this.item);
           console.log("Produto: " + res.nome);
         });
         
@@ -49,10 +56,10 @@ export class CarrinhoPage implements OnInit {
   
 
 
-    this.service.listar().subscribe(res => {
-      this.listacompras = res;
-      console.log(this.listacompras);
-    });
+    //this.service.listar().subscribe(res => {
+    //  this.listacompras = res;
+    // console.log(this.listacompras);
+    //});
     
     
 

@@ -24,6 +24,7 @@ export class IncluirprodutosPage implements OnInit {
       'bebida':'',
       'nome':'',
       'valor':''
+      
 
     };
    }
