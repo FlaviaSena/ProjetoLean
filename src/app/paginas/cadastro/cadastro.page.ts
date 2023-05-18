@@ -1,37 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
-import { AutenticacaoService } from 'src/app/servicos/autenticacao.service';
+import { Cadastrocliente, CadastroclienteService } from 'src/app/servicos/cadastrocliente.service';
+import { ActivatedRoute } from '@angular/router';
+import { AnyARecord } from 'dns';
+
+
 
 @Component({
-  selector: 'app-cadastro',
+  selector: 'app-cadastrocliente',
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule]
 })
-export class CadastroPage implements OnInit {
-  credencial!:FormGroup;
-
-  constructor(private service: AutenticacaoService, private fb: FormBuilder,private nav: NavController) { }
+export class CadastroclientePage implements OnInit {
+  cadastrocliente: Cadastrocliente[] = [];
+  id: any;
+  
+  constructor( private service: CadastroclienteService, private nav: NavController,  private rota: ActivatedRoute) { }
 
   ngOnInit() {
-    this.credencial = this.fb.group({
-      email: ['', [Validators.required,Validators.email]],
-      senha:['',[Validators.required, Validators.minLength]]
-    })
+
+    this.id = this.rota.snapshot.params['idcliente'];
+    
+
+
+    this.service.listar().subscribe(res => {
+      this.cadastrocliente = res;
+      console.log(this.cadastrocliente);
+    });
+    
+  }
+  novo(){
+this.nav.navigateForward("cadastrarcliente");
+  }
+  iniciarEdicao(id:any){
+this.nav.navigateForward(["cadastrocliente",{idcadastrocliente:id}]);
   }
 
-  async cadastro(){
-    console.log(this.credencial.get('email')?.value);
-    console.log(this.credencial.get('senha')?.value);
-    const user = await this.service.cadastro(this.credencial.get('email')?.value, this.credencial.get('senha')?.value);
-    if(user){
-      this.nav.navigateForward("interno");
-    } else{
-      console.log("Erro");
-    }
-  }
+excluir(id:any){
+  
+  this.service.excluir(id);
+}
 
 }

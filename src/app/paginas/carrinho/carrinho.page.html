@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Carrinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Carrinho</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <!--
+     ids?:string;
+  bebida: string;
+  nome:string;
+  prato: string;
+  valor: string;
+  -->
+
+  <ion-card *ngFor= "let c of produtos">
+    <ion-card-subtitle>{{c.nome}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.bebida}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.prato}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>
+    
+   
+    
+  <ion-card-content>
+    <ion-button (click)="final()">Finalizar Compra</ion-button>
+    </ion-card-content>
+    <ion-button (click)="excluir()"><ion-icon name="trash-bin-outline"></ion-icon></ion-button>
+  </ion-card>
+
+
+
+
+</ion-content>

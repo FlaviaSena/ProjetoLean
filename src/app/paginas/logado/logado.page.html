@@ -1,25 +1,16 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
-      
       <ion-content>
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false" >
-            <ion-item (click)="cadastrar()">
-              <ion-label>Cadastrar-se</ion-label>
+            <ion-item>
+              <ion-label>Seja bem vindo! </ion-label>
             </ion-item>
-            
-            <ion-item (click)="login()">
+
+            <ion-item>
               <ion-label>Login</ion-label>
             </ion-item>
-
-            <ion-item (click)="sair()">
-            <ion-label>Sair <ion-icon name="log-out-outline"></ion-icon></ion-label>
-          </ion-item>
-
-          <ion-item (click)="listacliente()">
-            <ion-label>Clientes</ion-label>
-          </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>  
