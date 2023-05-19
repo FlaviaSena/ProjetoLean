@@ -10,7 +10,6 @@ export interface Compras {
   nome:string;
   prato: string;
   valor: string;
-  quantidade: string;
   }
 
 @Injectable({

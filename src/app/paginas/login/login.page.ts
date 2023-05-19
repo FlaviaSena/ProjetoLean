@@ -37,7 +37,6 @@ export class LoginPage implements OnInit {
         this.nav.navigateForward("home");
       }
     } catch(e){
-      console.log(e);
       this.erro();
     }
   }

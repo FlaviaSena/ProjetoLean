@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>Incluir prato</ion-title>
     <ion-button slot="start" (click)="voltar()">
       <ion-icon name="arrow-back-outline"></ion-icon>
@@ -21,7 +21,6 @@
   <ion-input [(ngModel)]="produto.bebida" placeholder="Bebida"></ion-input>
   <ion-input [(ngModel)]="produto.nome" placeholder="Nome colaborador"></ion-input>
   <ion-input [(ngModel)]="produto.valor" placeholder="Preço do produto"></ion-input>
-  <ion-input [(ngModel)]="produto.quantidade" placeholder="Quantidade"></ion-input>
   
   <ion-button (click)="incluir()">Incluir Produto</ion-button>
 

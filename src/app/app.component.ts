@@ -55,4 +55,8 @@ async logout(){
       console.log("LoGOUT");
 }
 
+listacliente(){
+  this.nav.navigateForward("cadastro");
+}
+
 }

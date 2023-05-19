@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Carrinho</ion-title>
+    <ion-icon name="close-outline" slot="end" (click)="voltar()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -20,19 +21,18 @@
   valor: string;
   -->
 
-  <ion-card *ngFor= "let c of listacompras">
+  <ion-card *ngFor= "let c of produtos">
     <ion-card-subtitle>{{c.nome}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.bebida}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.prato}}</ion-card-subtitle>
-    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>  
-   
+    <ion-card-subtitle>{{c.valor}}</ion-card-subtitle>
+    
    
     
   <ion-card-content>
-    <ion-input type="number" [(ngModel)]="c.quantidade"></ion-input>
-
-    <ion-button>Finalizar Compra</ion-button>
+    <ion-button (click)="final()">Finalizar Compra</ion-button>
     </ion-card-content>
+    <ion-button (click)="excluir()"><ion-icon name="trash-bin-outline"></ion-icon></ion-button>
   </ion-card>
 
 

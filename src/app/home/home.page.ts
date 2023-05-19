@@ -70,7 +70,7 @@ export class HomePage implements OnInit {
           this.carrinho();
         }else{
           this.naologado();
-
+          this.ids = "";
         }
       }
 

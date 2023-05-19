@@ -36,7 +36,7 @@ export class ProdutosService {
   alterar(obj: any){
     const produto = doc(this.firestore, this.colecao + '/' +obj.id);
     return updateDoc(produto, {
-      bebida:obj.bebida, endereco:obj.endereco, nome:obj.nome, prato: obj.prato
+      bebida:obj.bebida, endereco:obj.endereco, nome:obj.nome, prato: obj.prato, telefone:obj.telefone
     });
   }
 }

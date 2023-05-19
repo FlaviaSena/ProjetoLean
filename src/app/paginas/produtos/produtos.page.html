@@ -19,11 +19,10 @@
 
   <ion-card *ngFor= "let c of produtos">
     <ion-card-subtitle>{{c.nome}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.endereco}}</ion-card-subtitle>
+    <ion-card-subtitle>{{c.telefone}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.prato}}</ion-card-subtitle>
     <ion-card-subtitle>{{c.bebida}}</ion-card-subtitle>
-    
-   
-    
     
   <ion-card-content>
     <ion-button (click)="iniciarEdicao(c.id)">Alterar</ion-button>

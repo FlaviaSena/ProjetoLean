@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, NavController } from '@ionic/angular';
 import { Cadastrocliente, CadastroclienteService } from 'src/app/servicos/cadastrocliente.service';
+import { ActivatedRoute } from '@angular/router';
+import { AnyARecord } from 'dns';
 
 
 
@@ -15,10 +17,16 @@ import { Cadastrocliente, CadastroclienteService } from 'src/app/servicos/cadast
 })
 export class CadastroclientePage implements OnInit {
   cadastrocliente: Cadastrocliente[] = [];
-
-  constructor( private service: CadastroclienteService, private nav: NavController) { }
+  id: any;
+  
+  constructor( private service: CadastroclienteService, private nav: NavController,  private rota: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.id = this.rota.snapshot.params['idcliente'];
+    
+
+
     this.service.listar().subscribe(res => {
       this.cadastrocliente = res;
       console.log(this.cadastrocliente);
@@ -31,5 +39,10 @@ this.nav.navigateForward("cadastrarcliente");
   iniciarEdicao(id:any){
 this.nav.navigateForward(["cadastrocliente",{idcadastrocliente:id}]);
   }
+
+excluir(id:any){
+  
+  this.service.excluir(id);
+}
 
 }

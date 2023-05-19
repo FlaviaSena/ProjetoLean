@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { collection, collectionData, docData, Firestore } from '@angular/fire/firestore';
-import { addDoc,doc, updateDoc } from 'firebase/firestore';
+import { addDoc,doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 
 export interface Cadastrocliente {
@@ -41,8 +41,14 @@ export class CadastroclienteService {
   alterar(obj: any){
     const cadastrocliente = doc(this.firestore, this.colecao + '/' +obj.id);
     return updateDoc(cadastrocliente, {
-      nome:obj.nome, telefone:obj.telefone, cpf:obj.cpf, cep: obj.cep, rua:obj.rua, numero:obj.numero, bairro:obj.bairro
+      nome:obj.nome, telefone:obj.telefone, cpf:obj.cpf, cep: obj.cep, rua:obj.rua, numero:obj.numero, bairro:obj.bairro, email:obj.email
     });
   }
-}
 
+  excluir(id: any){
+    const cadastrocliente = doc(this.firestore, this.colecao +'/' +id);
+    return deleteDoc(cadastrocliente);
+
+  } 
+
+}
